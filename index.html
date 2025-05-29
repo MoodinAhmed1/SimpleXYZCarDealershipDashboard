@@ -1,0 +1,371 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!--jquery library cuz dataTable-->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <!--dataTable stylesheet and script-->
+    <link rel="stylesheet" href="//cdn.datatables.net/2.3.1/css/dataTables.dataTables.min.css">
+    <script src="//cdn.datatables.net/2.3.1/js/dataTables.min.js"></script>
+
+    <!--chart.js script-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    
+    <style>
+        .tableContainer {
+            padding: 0 200px
+        }
+        .card-body {
+            background-color: black;
+            color: white;
+        }     
+        thead {
+            background-color: black;
+            color: white;
+        }   
+
+        td{
+            background-color: rgb(173, 169, 169);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center mt-3 pt-3">XYZ Dealership Dashboard</h1>
+
+    <div class="container my-5">
+        <div class="row justify-content-center g-4">
+            <div class="col-3">
+                <div class="card h-100 p-4">
+                    <div class="card-body p-4 d-flex flex-column align-items-center justify-content-center text-center">
+                        <h5>169</h5>
+                        <h1>Cars in stock</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card h-100 p-4">
+                    <div class="card-body p-4 d-flex flex-column align-items-center justify-content-center text-center">
+                        <h5>12</h5>
+                        <h1>Types of cars</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 ">
+                <div class="card h-100 p-4">
+                    <div class="card-body p-4 d-flex flex-column align-items-center justify-content-center text-center">
+                        <h5>64.3 million</h5>
+                        <h1>Profit this year</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tableContainer my-5">
+        <table id="ourTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Condition</th>
+                    <th>Mileage</th>
+                    <th>Location</th>
+                    <th>Availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Toyota</td>
+                    <td>Camry</td>
+                    <td>2022</td>
+                    <td>$24,500</td>
+                    <td>New</td>
+                    <td>0 km</td>
+                    <td>Addis Ababa</td>
+                    <td>In Stock</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Hyundai</td>
+                    <td>Elantra</td>
+                    <td>2020</td>
+                    <td>$18,200</td>
+                    <td>Used</td>
+                    <td>34,000 km</td>
+                    <td>Adama</td>
+                    <td>In Stock</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Ford</td>
+                    <td>F-150</td>
+                    <td>2021</td>
+                    <td>$32,000</td>
+                    <td>Used</td>
+                    <td>15,000 km</td>
+                    <td>Bahir Dar</td>
+                    <td>Reserved</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Nissan</td>
+                    <td>Altima</td>
+                    <td>2019</td>
+                    <td>$15,800</td>
+                    <td>Used</td>
+                    <td>50,000 km</td>
+                    <td>Hawassa</td>
+                    <td>Out of Stock</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Chevrolet</td>
+                    <td>Malibu</td>
+                    <td>2023</td>
+                    <td>$27,900</td>
+                    <td>New</td>
+                    <td>0 km</td>
+                    <td>Addis Ababa</td>
+                    <td>In Stock</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Kia</td>
+                    <td>Sorento</td>
+                    <td>2021</td>
+                    <td>$23,700</td>
+                    <td>Used</td>
+                    <td>22,500 km</td>
+                    <td>Dire Dawa</td>
+                    <td>In Stock</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>BMW</td>
+                    <td>3 Series</td>
+                    <td>2022</td>
+                    <td>$41,000</td>
+                    <td>New</td>
+                    <td>500 km</td>
+                    <td>Mekelle</td>
+                    <td>In Stock</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Mercedes</td>
+                    <td>C-Class</td>
+                    <td>2020</td>
+                    <td>$39,500</td>
+                    <td>Used</td>
+                    <td>18,000 km</td>
+                    <td>Gondar</td>
+                    <td>Reserved</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Honda</td>
+                    <td>Civic</td>
+                    <td>2018</td>
+                    <td>$13,900</td>
+                    <td>Used</td>
+                    <td>65,000 km</td>
+                    <td>Jimma</td>
+                    <td>Out of Stock</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Tesla</td>
+                    <td>Model 3</td>
+                    <td>2023</td>
+                    <td>$46,000</td>
+                    <td>New</td>
+                    <td>0 km</td>
+                    <td>Addis Ababa</td>
+                    <td>In Stock</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <div class="row g-5 align-items-center justify-content-center">
+            <div class="myBarChartDiv col-6">
+                <h2 class="text-center">Profit Over The Years</h2>
+                <button onclick="toggleBarChart()">Update Bar Chart</button>
+
+                <canvas id="myBarChart"></canvas>
+                
+                <!-- Bar Chart Update Inputs -->
+                <div class="my-4 text-center barChartInputDiv" style="display: none; margin-top: 20px;">
+                    <h5>Update Bar Chart (Revenue in millions)</h5>
+                    <input class="BarChartInput" type="number" step="0.1" placeholder="2017">
+                    <input class="BarChartInput" type="number" step="0.1" placeholder="2018">
+                    <input class="BarChartInput" type="number" step="0.1" placeholder="2019">
+                    <input class="BarChartInput" type="number" step="0.1" placeholder="2020">
+                    <input class="BarChartInput" type="number" step="0.1" placeholder="2021">
+                    <input class="BarChartInput" type="number" step="0.1" placeholder="2022">
+                    <input class="BarChartInput" type="number" step="0.1" placeholder="2023">
+                    <input class="BarChartInput" type="number" step="0.1" placeholder="2024">
+                    <button onclick="updateBarChart()">Update Bar Chart</button>
+                </div>
+            </div>
+
+            <div class="myPieChartDiv col-3 justify-content-center">
+                <h2 class="text-center">Sales Distribution</h2>
+                <button onclick="togglePieChart()">Update Pie Chart</button>
+                <canvas id="myPieChart"></canvas>
+                <div class="my-4 text-center pieChartInputDiv" style="display: none; margin-top: 20px;">
+                    <h5>Update Pie Chart (Percentage Sale)</h5>
+                    <input class="PieChartInput" type="number" step="0.1" placeholder="Used">
+                    <input class="PieChartInput" type="number" step="0.1" placeholder="New">
+                    <button onclick="updatePieChart()">Update Pie Chart</button>
+            </div>
+        </div>
+
+        <div class="row align-items-center justify-content-center mt-5">
+            <div class="myLineChartDiv col-5">
+                <h2 class="text-center">Profit Over The Months</h2>
+
+                <button onclick="toggleLineChart()">Update Line Chart</button>
+
+                <canvas id="myLineChart"></canvas>
+
+                <div class="LineChartinputFields" style="display: none; text-align: center; margin-top: 20px;">
+                    <input class="LineChartInput" type="text" placeholder="January">
+                    <input class="LineChartInput" type="text" placeholder="February">
+                    <input class="LineChartInput" type="text" placeholder="March">
+                    <input class="LineChartInput" type="text" placeholder="April">
+                    <input class="LineChartInput" type="text" placeholder="May">
+                    <input class="LineChartInput" type="text" placeholder="June">
+                    <input class="LineChartInput" type="text" placeholder="July">
+                    <input class="LineChartInput" type="text" placeholder="August">
+                    <input class="LineChartInput" type="text" placeholder="September">
+                    <input class="LineChartInput" type="text" placeholder="October">
+                    <input class="LineChartInput" type="text" placeholder="November">
+                    <input class="LineChartInput" type="text" placeholder="December">
+                    <button onclick="updateLineChart()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#ourTable').DataTable();
+
+        let myBarChart = document.getElementById('myBarChart');
+
+        let myBarista = new Chart(myBarChart, {
+            type: "bar",
+            data: {
+                labels : ["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+                datasets : [
+                    {
+                        label : "revenue in millions",
+                        data : [1.2, 2.5, 2.6, 3.6, 3.9, 14.5, 15.9, 22.1]
+                    }
+                ]
+            }
+        })
+
+        let myPieChart = document.getElementById('myPieChart');
+
+        new Chart(myPieChart, {
+            type : "pie",
+            data: {
+                labels : ["used", "new"],
+                datasets : [
+                    {
+                        label: 'percenatge sale',
+                        data: [33, 77]
+                    }
+                ]
+            }
+        })
+
+        let myLineChartCanva = document.getElementById('myLineChart');
+
+        let myLineChart = new Chart(myLineChartCanva, {
+            type: "line",
+            data: {
+                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                datasets: [
+                    {
+                        label: "profit in millions dollar",
+                        data: [100, 120, 90, 140, 130, 150, 170, 160, 180, 200, 220, 240],
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        backgroundColor: "rgba(75, 192, 192, 0.2)",
+                        fill: true,
+                        tension: 0.1
+                    }
+                ]
+            }
+        })
+
+
+        function toggleBarChart() {
+            let barChartInputDiv = document.querySelector(".barChartInputDiv"); 
+            barChartInputDiv.style.display = barChartInputDiv.style.display === "none" ? "block" : "none";
+        }
+
+        function updateBarChart() {
+            let barChartInputs = document.querySelectorAll(".BarChartInput");
+            let newData = [];
+
+            barChartInputs.forEach(input => {
+                newData.push(input.value);
+            });
+
+            myBarista.data.datasets[0].data = newData;
+            myBarista.update();
+        }
+
+        function togglePieChart() {
+            let pieChartInputDiv = document.querySelector(".pieChartInputDiv");
+            pieChartInputDiv.style.display = pieChartInputDiv.style.display === "none" ? "block" : "none";
+        }
+        function updatePieChart() {
+            let pieChartInputs = document.querySelectorAll(".PieChartInput");
+            let newData = [];
+
+            pieChartInputs.forEach(input => {
+                newData.push(input.value);
+            });
+
+            myPieChart.data.datasets[0].data = newData;
+            myPieChart.update();
+        }
+
+        function toggleLineChart() {
+            let lineChartInputDiv = document.querySelector(".LineChartinputFields");
+            lineChartInputDiv.style.display = lineChartInputDiv.style.display === "none" ? "block" : "none";
+        }
+
+        function updateLineChart() {
+            let inputFields = document.querySelectorAll(".LineChartInput");
+
+            let newValues = []
+
+                inputFields.forEach(input => {
+                    newValues.push(input.value)
+                })
+            
+            myLineChart.data.datasets[0].data = newValues;
+            myLineChart.update();
+        }
+
+
+    </script>
+</body>
+</html>
